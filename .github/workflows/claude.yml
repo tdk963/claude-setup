@@ -42,6 +42,8 @@ jobs:
             You MUST open a draft pull request after creating a branch.
             You MUST create a pull request after completing your task.
             You can create pull requests using the `mcp__github__create_pull_request` tool.
+            Use `gh pr comment:*` for top-level comments.
+            Only your GitHub comments that you post will be seen, so don't submit your review as a normal message, just as comments.
           claude_args: |
             --allowedTools "
               mcp__github__create_pull_request,

@@ -28,7 +28,7 @@ jobs:
           ref: ${{ steps.comment-branch.outputs.head_ref }}
           repository: ${{ steps.comment-branch.outputs.head_owner }}/${{ steps.comment-branch.outputs.head_repo }}
           # Fetch more history for better git operations
-          fetch-depth: 0
+          fetch-depth: 1
           persist-credentials: false
 
       - name: Setup Node.js
@@ -41,7 +41,6 @@ jobs:
         uses: anthropics/claude-code-action@v1
         with:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
-          github_token: ${{ secrets.GITHUB_TOKEN }}
           prompt: |
             Please review this pull request and provide feedback on:
             - Code quality and best practices
@@ -50,7 +49,8 @@ jobs:
             - Security concerns
             - Test coverage
             Be constructive and helpful in your feedback. Don't be overly polite or verbose, it is ok to be direct.
-            Create a comment on the PR with your feedback using gh pr comment:*.
+            Use `gh pr comment:*` for top-level comments.
+            Only your GitHub comments that you post will be seen, so don't submit your review as a normal message, just as comments.
           # Add specific tools for running tests or linting
           claude_args: |
             --allowedTools "
