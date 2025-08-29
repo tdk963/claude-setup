@@ -48,6 +48,8 @@ jobs:
           claude_args: |
             --allowedTools "
               mcp__github__create_pull_request,
+              mcp__github__get_me,
+              mcp__github__list_pull_requests,
               Bash(pnpm install),
               Bash(pnpm test:*),
               Bash(pnpm fmt:sol),
