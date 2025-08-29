@@ -39,6 +39,7 @@ jobs:
         with:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
           prompt: |
+            Review this pull request.
             You MUST open a draft pull request after creating a branch.
             You MUST create a pull request after completing your task.
             You can create pull requests using the `mcp__github__create_pull_request` tool.
