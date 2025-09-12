@@ -43,7 +43,7 @@ jobs:
             REPO: ${{ github.repository }}
             PR NUMBER: ${{ github.event.pull_request.number }}
 
-            Perform a comprehensive code review of the changes in this pull request with the following focus areas:
+            Perform a comprehensive code review of the changes in this pull request with the following focus areas when relevant:
 
             1. **Code Quality**
                - Clean code principles and best practices
@@ -65,7 +65,7 @@ jobs:
                - Review test quality and edge cases
                - Check for missing test scenarios
 
-            Use top-level comments for the review.
+            Use top-level comments for the review. Leave out sections that have no relevance, for example if it is a documentation change testing may be irrelevant.
           # Tools for comprehensive PR review
           claude_args: |
             --allowedTools "mcp__github_inline_comment__create_inline_comment,Bash(gh pr comment:*),Bash(gh pr diff:*),Bash(gh pr view:*)"
